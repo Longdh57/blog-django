@@ -1,0 +1,23 @@
+{% extends "pages/base.html" %}
+
+{% block title %}
+    Blog
+{% endblock %}
+
+{% block content %}
+    {% for post in Posts %}
+        <div class="row">
+        <div class="col-3">
+            {% if post.image %}
+            <img src="{{ post.image.url }}" class="img-thumbnail" alt="{{ post.title }}">
+            {% else %}
+            <img src="/media/no_image.png" class="img-thumbnail" alt="{{ post.title }}">
+            {% endif %}
+        </div>
+        <div class="col-9">
+            <h4>{{ post.date|date:"d-m-Y"}}</h4>
+            <h2><a href="{% url 'post' post.id %}"> {{ post.title }}</a></h2>
+        </div>
+        </div>
+    {% endfor %}
+{% endblock %}

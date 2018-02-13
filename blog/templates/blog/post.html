@@ -1,0 +1,14 @@
+{% extends "pages/base.html" %}
+
+{% block title %}
+    {{ post.title }}
+{% endblock %}
+
+{% block content %}
+{% if post.image %}
+    <img src="{{ post.image.url }}" class="rounded mx-auto d-block" alt="{{ post.title }}">
+{% endif %}
+<h3><a href="{% url 'post' post.id %}">{{ post.title }}</a> </h3>
+    <h6>on {{ post.date }}</h6>
+    {{ post.body|safe|linebreaks }}
+{% endblock %}
