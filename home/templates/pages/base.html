@@ -13,10 +13,19 @@
     <div class="container-fluid" style="min-height: 95%">
         <div class="row">
             <div class="col-sm-2">
-                <center><a href="/"> <img src="{% static  'images/dog.png' %}" class="responsive-img" style="max-height: 150px;"/></a> </center>
+                <center><a href="/"> <img src="{% static  'images/logo.png' %}" class="responsive-img" style="max-height: 150px;"/></a> </center>
             </div>
-            <div class="col-sm-10">
-                <center>Blog làm từ Python Django</center>
+            <div class="col-sm-9">
+                <center><h1>Blog làm từ Python Django</h1></center>
+            </div>
+            <div class="col-sm-1">
+                {% if user.username %}
+                    <a href="/admin">Vào trang quản lý </a>
+                    <a href="{% url 'logout' %}">Đăng xuất </a>
+                {% else%}
+                    <a href="{% url 'login' %}">Đăng nhập</a><br/>
+                    <a href="{% url 'register' %}">Đăng ký</a>
+                {% endif %}
             </div>
         </div>
 
