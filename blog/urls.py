@@ -10,5 +10,5 @@ urlpatterns = [
         context_object_name = 'Posts',
         paginate_by = 4
     ), name='blog'),
-    path('<int:pk>', views.PostDetailView.as_view(), name='post')
+    path('<int:pk>', views.post, name='post')
 ]
